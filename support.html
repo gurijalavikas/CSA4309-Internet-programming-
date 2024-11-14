@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #f0f0f0, #ffffff);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 60px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .support-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .support-option {
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #ff9900;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .support-option:hover {
+            background-color: #e08800;
+        }
+
+        .support-option h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .support-option p {
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Support Center</h1>
+
+    <div class="support-container">
+
+        <!-- Phone Support -->
+        <div class="support-option" onclick="alert('Phone Support: Call us at +1 (800) 555-1234')">
+            <h2>📞 Phone Support</h2>
+            <p>Reach out to us directly via phone for immediate assistance.</p>
+        </div>
+
+        <!-- Email Support -->
+        <div class="support-option" onclick="alert('Email Support: Send an email to support@laptopsales.com')">
+            <h2>📧 Email Support</h2>
+            <p>Send us an email, and our team will respond within 24 hours.</p>
+        </div>
+
+        <!-- Live Chat -->
+        <div class="support-option" onclick="alert('Live Chat: Connecting you to an agent...')">
+            <h2>💬 Live Chat</h2>
+            <p>Chat with a live agent for real-time support.</p>
+        </div>
+
+        <!-- Knowledge Base -->
+        <div class="support-option" onclick="window.location.href='knowledgebase.html'">
+            <h2>📚 Knowledge Base</h2>
+            <p>Explore our resources for self-help guides and FAQs.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

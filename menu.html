@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            background: linear-gradient(to bottom, #ff9900, #ffffff);
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #ff9900;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .menu-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .menu-item {
+            margin-bottom: 15px;
+        }
+
+        .menu-item a {
+            display: block;
+            background-color: #ff9900;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-item a:hover {
+            background-color: #ff6600;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ff9900;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        footer a:hover {
+            color: #ff6600;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Main Menu</h2>
+        <ul class="menu-list">
+            <li class="menu-item">
+                <a href="profile.html">User Profile</a>
+            </li>
+            <li class="menu-item">
+                <a href="orderhistory.html">Order History</a>
+            </li>
+            <li class="menu-item">
+                <a href="review.html">Submit a Review</a>
+            </li>
+            <li class="menu-item">
+                <a href="services.html">Our Services</a>
+            </li>
+            <li class="menu-item">
+                <a href="contact.html">Contact Us</a>
+            </li>
+            <li class="menu-item">
+                <a href="booking.html">Book a Service</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <a href="profile.html">Profile</a> | 
+        <a href="order.html">Orders</a> | 
+        <a href="review.html">Reviews</a>
+    </footer>
+
+</body>
+</html>

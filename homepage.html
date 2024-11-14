@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Sales</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #ff9900, #ffffff);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Footer styling */
+        footer {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff9900;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .home {
+            text-align: left;
+            padding-left: 15px;
+            font-weight: bold;
+
+        }
+
+        .center-title {
+            flex-grow: 1;
+            text-align: center;
+            color: black;
+            font-size: xx-large;
+            font-weight: bold;
+        }
+
+        #search-bar {
+            margin-top: 10px;
+            padding: 8px;
+            width: 60%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        #search-btn {
+            padding: 8px 10px;
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        main {
+            padding-top: 100px;
+            width: 80%;
+        }
+
+        /* Main content styling */
+        h2 {
+            color: #333;
+            margin: 20px 0;
+            font-size: 24px;
+            animation: glitter 2s linear infinite;
+            background: linear-gradient(90deg, #ff66cc, #ffcc33, #33ccff, #66ff66, #ff66cc);
+            background-size: 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Glittering Animation */
+        @keyframes glitter {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* Rest of the CSS remains unchanged */
+        /* Laptop images and footer code as provided above */
+        .laptop-images {
+            display: flex;
+            gap: 15px;
+            overflow: hidden;
+            padding: 20px 0;
+            margin: 20px 0;
+            width: 100%;
+            animation: scroll 20s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .laptop-images img {
+            width: 200px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px;
+            animation: fadeInUp 1s ease forwards;
+            opacity: 0;
+        }
+
+        .laptop-images img:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-around;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        header a:hover {
+            background-color: #ff6600;
+        }
+        .home {
+            color:black;
+            text-align: left;
+
+        }
+        .review-container {
+    max-height: 200px; /* Set height for scrollable area */
+    overflow-y: hidden; /* Hide scrollbar */
+    padding: 10px 0;
+    transition: scroll-behavior 0.3s;
+}
+
+.reviews {
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: center;
+}
+
+.reviews h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.review {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.review:last-child {
+    border-bottom: none;
+}
+
+.review p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.review span {
+    font-size: 18px;
+    color: #ff9900;
+}
+
+#scroll-up, #scroll-down {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 15px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+#scroll-up:hover, #scroll-down:hover {
+    background-color: #ff9900;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <footer>
+        <div class="home"> 🏠 Home</div>
+        <div class="center-title">LAPTOP SALES & SERVICE</div>
+        <div>
+            <input type="text" id="search-bar" placeholder="Search for laptops...">
+            <button id="search-btn"> 🔍</button>
+        </div>
+    </footer>
+
+    <!-- Main content -->
+    <main>
+        <h2>Winter Sales - Offers Available up to 20%</h2>
+        
+        <div class="laptop-images">
+            <img src="delluserpage.jpg" alt="Dell Laptop">
+            <img src="acer.jpg" alt="Acer Laptop">
+            <img src="hp-intel-core-i5.jpg" alt="HP Intel Core i5">
+            <img src="victus.jpg" alt="Victus Laptop">
+            <img src="lenovo.jpg" alt="Lenovo Laptop">
+            <img src="macbook.jpg" alt="MacBook">
+            <img src="asus.jpg" alt="ASUS Laptop">
+            <!-- Duplicate images for infinite scrolling effect -->
+            <img src="delluserpage.jpg" alt="Dell Laptop">
+            <img src="acer.jpg" alt="Acer Laptop">
+            <img src="hp-intel-core-i5.jpg" alt="HP Intel Core i5">
+            <img src="victus.jpg" alt="Victus Laptop">
+            <img src="lenovo.jpg" alt="Lenovo Laptop">
+            <img src="macbook.jpg" alt="MacBook">
+            <img src="asus.jpg" alt="ASUS Laptop">
+        </div>             
+<!-- Customer Reviews Section -->
+<div class="reviews">
+    <h3>Customer Reviews</h3>
+
+    <!-- Scroll Buttons -->
+    <button id="scroll-up" onclick="scrollReviews(-100)">⬆ Scroll Up</button>
+
+    <div class="review-container">
+        <div class="review">
+            <p><strong>John Doe:</strong> "Amazing laptop! The performance is top-notch and battery life is impressive."</p>
+            <span>⭐⭐⭐⭐⭐</span>
+        </div>
+        
+        <div class="review">
+            <p><strong>Jane Smith:</strong> "Great value for the price. Perfect for students and professionals alike."</p>
+            <span>⭐⭐⭐⭐</span>
+        </div>
+        
+        <div class="review">
+            <p><strong>David Lee:</strong> "Excellent graphics for gaming and smooth multitasking. Highly recommend!"</p>
+            <span>⭐⭐⭐⭐⭐</span>
+        </div>
+        
+        <div class="review">
+            <p><strong>Emily Clark:</strong> "Sleek design and lightweight, but could improve on the screen brightness."</p>
+            <span>⭐⭐⭐⭐</span>
+        </div>
+    </div>
+
+    <button id="scroll-down" onclick="scrollReviews(100)">⬇ Scroll Down</button>
+</div>
+
+    </main>
+    
+
+    <!-- Footer -->
+    <header>
+        <a id="home-btn" href="homepage.html">🏠 Home</a>
+        <a id="you-btn" href="profile.html">👤 Profile</a>
+        <a id="menu-btn" href="saleandservices.html">📋 Menu</a>
+        <a id="more-btn" href="more.html">📚 More</a>
+        <a id="cart-btn" href="cart.html">🛒 Cart</a> 
+        <a id="support-btn" href="support.html">📧 Support</a>
+        <a id="log-out" href="login.html">🔓 Log Out</a>
+        
+    </header>
+
+    <script>
+    function scrollReviews(amount) {
+        const reviewContainer = document.querySelector('.review-container');
+        reviewContainer.scrollBy({ top: amount, behavior: 'smooth' });
+    }
+        // Search functionality
+        const searchBtn = document.getElementById('search-btn');
+        const searchBar = document.getElementById('search-bar');
+        searchBtn.addEventListener('click', () => {
+            const query = searchBar.value;
+            if (query) {
+                alert('Searching for: ' + query);
+            } else {
+                alert('Please enter a search term.');
+            }
+        });
+
+        // Laptop click functionality
+        document.querySelectorAll('.laptop-images img').forEach((laptop) => {
+            laptop.addEventListener('click', () => {
+                alert('Viewing details for ' + laptop.alt);
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-image: url('file:///C:/Users/Rakesh/Desktop/janani/cat.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 80%;
+      margin: 40px auto;
+      text-align: center;
+    }
+
+    .product-categories {
+      display: inline-block;
+      width: 300px;
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
+
+    .product-categories ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .product-categories li {
+      margin-bottom: 10px;
+    }
+
+    .category {
+      font-weight: bold;
+      cursor: pointer;
+      color: #fff;
+      background-color: #ff9900;
+      padding: 10px;
+      border-radius: 5px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .category:hover {
+      background-color: #ff6600;
+    }
+
+    .brands {
+      display: none;
+      margin-left: 20px;
+    }
+
+    .brands li {
+      margin-bottom: 5px;
+    }
+
+    .brands a {
+      text-decoration: none;
+      color: #337ab7;
+    }
+
+    .brands a:hover {
+      color: #23527c;
+    }
+
+    .header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .back-button {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #ff9900;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .back-button:hover {
+      background-color: #ff6600;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="product-categories">
+      <br>
+      <div class="header">Product Categories</div>
+      <ul>
+        <li>
+          <br>
+          <a href="#" class="category">Business Laptops</a>
+          <ul class="brands">
+            <li><a href="p1.html">Dell</a></li>
+            <li><a href="p1.html">HP</a></li>
+            <li><a href="p1.html">Lenovo</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="C:\Users\Rakesh\Desktop\janani\categories.html" class="category">Gaming Laptops</a>
+          <ul class="brands">
+            <li><a href="p1.html">Alienware</a></li>
+            <li><a href="p1.html">MSI</a></li>
+            <li><a href="p1.html">Razer</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="category">Student Laptops</a>
+          <ul class="brands">
+            <li><a href="p1.html">Acer</a></li>
+            <li><a href="p1.html">Asus</a></li>
+            <li><a href="p1.html">Apple</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Back Button -->
+  <a class="back-button" onclick="goBack()">Back</a>
+
+  <script>
+    // Get all category elements
+    const categories = document.querySelectorAll('.category');
+
+    // Add event listener to each category
+    categories.forEach(category => {
+      category.addEventListener('click', () => {
+        // Get the brands list for the clicked category
+        const brands = category.nextElementSibling;
+
+        // Toggle the display of the brands list
+        brands.style.display = brands.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+
+    // Function to go back to the previous page
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+</html>

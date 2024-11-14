@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            background: linear-gradient(to bottom, #ff9900, #ffffff);
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #ff9900;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .review-form {
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .form-group button {
+            background-color: #ff9900;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .form-group button:hover {
+            background-color: #ff6600;
+        }
+
+        .reviews-section {
+            margin-top: 40px;
+        }
+
+        .review {
+            background-color: #fff5e6;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .review h4 {
+            margin-bottom: 10px;
+            color: #ff9900;
+        }
+
+        .review p {
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .no-reviews {
+            text-align: center;
+            font-size: 18px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Customer Reviews</h2>
+
+        <!-- Review Form -->
+        <div class="review-form">
+            <h3>Submit Your Review</h3>
+            <form id="reviewForm">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="review">Your Review:</label>
+                    <textarea id="review" name="review" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit Review</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="reviews-section" id="reviewsSection">
+            <h3>What Customers Say</h3>
+            <div class="no-reviews">No reviews yet. Be the first to review!</div>
+        </div>
+    </div>
+
+    <script>
+        const reviewForm = document.getElementById('reviewForm');
+        const reviewsSection = document.getElementById('reviewsSection');
+        const noReviewsText = document.querySelector('.no-reviews');
+
+        // Array to store submitted reviews
+        const reviews = [];
+
+        reviewForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Collect form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const reviewText = document.getElementById('review').value;
+
+            // Create a new review object
+            const newReview = {
+                name,
+                email,
+                reviewText
+            };
+
+            // Add the new review to the array
+            reviews.push(newReview);
+
+            // Clear the form
+            reviewForm.reset();
+
+            // Update the review section
+            renderReviews();
+        });
+
+        function renderReviews() {
+            // Clear existing reviews
+            reviewsSection.innerHTML = '<h3>What Customers Say</h3>';
+
+            // Check if there are any reviews
+            if (reviews.length === 0) {
+                reviewsSection.innerHTML += '<div class="no-reviews">No reviews yet. Be the first to review!</div>';
+            } else {
+                reviews.forEach((review, index) => {
+                    const reviewDiv = document.createElement('div');
+                    reviewDiv.classList.add('review');
+
+                    reviewDiv.innerHTML = `
+                        <h4>${review.name}</h4>
+                        <p>${review.reviewText}</p>
+                    `;
+
+                    reviewsSection.appendChild(reviewDiv);
+                });
+            }
+        }
+    </script>
+
+</body>
+</html>

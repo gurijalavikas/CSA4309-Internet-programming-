@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Sales</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            background-image: linear-gradient(to bottom, #ff9900, #ffffff);
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .product-card {
+            display: flex;
+            border: 1px solid #ddd;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .product-info {
+            margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: #ff9900;
+        }
+
+        .product-info p {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product-info .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff9900;
+        }
+
+        .product-info .original-price {
+            text-decoration: line-through;
+            color: #999;
+            margin-right: 10px;
+        }
+
+        .add-to-cart-btn {
+            background-color: #ff9900;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #ff6600;
+        }
+
+        .ratings {
+            display: flex;
+            align-items: center;
+        }
+
+        .ratings span {
+            color: #f39c12;
+            margin-right: 10px;
+        }
+
+        .offer-tag {
+            background-color: #f39c12;
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-right: 10px;
+        }
+
+        .header {
+            background-color: #ff9900;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Laptop Sales</h1>
+        </div>
+
+        <div class="product-list">
+            <!-- Product 1 -->
+            <div class="product-card" data-id="1" data-name="Chuwi CoreBook X i5 14\" Laptop" data-price="26990">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200" alt="Laptop 1">
+                </div>
+                <div class="product-info">
+                    <h3>Chuwi CoreBook X i5 14" Laptop</h3>
+                    <div class="ratings">
+                        <span>⭐⭐⭐⭐</span> 100+ bought in last month
+                    </div>
+                    <p>Intel Core i5, 16GB RAM, 512GB SSD, Windows 11</p>
+                    <p>
+                        <span class="original-price">₹49,000</span>
+                        <span class="price">₹26,990</span>
+                    </p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card" data-id="2" data-name="Lenovo ThinkPad E14 13th Gen" data-price="71990">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200" alt="Laptop 2">
+                </div>
+                <div class="product-info">
+                    <h3>Lenovo ThinkPad E14 13th Gen</h3>
+                    <div class="ratings">
+                        <span>⭐⭐⭐⭐⭐</span> Top-rated laptop
+                    </div>
+                    <p>Intel Core i5, 16GB RAM, 512GB SSD, Windows 11</p>
+                    <p>
+                        <span class="original-price">₹95,000</span>
+                        <span class="price">₹71,990</span>
+                    </p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card" data-id="3" data-name="Acer Aspire 3 Laptop" data-price="21990">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200" alt="Laptop 3">
+                </div>
+                <div class="product-info">
+                    <h3>Acer Aspire 3 Laptop</h3>
+                    <div class="ratings">
+                        <span>⭐⭐⭐</span> 500+ bought in last month
+                    </div>
+                    <p>Intel Celeron, 8GB RAM, 512GB SSD, Windows 11</p>
+                    <p>
+                        <span class="original-price">₹32,000</span>
+                        <span class="price">₹21,990</span>
+                    </p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card" data-id="4" data-name="ASUS Vivobook 15 N4020" data-price="25990">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200" alt="Laptop 4">
+                </div>
+                <div class="product-info">
+                    <h3>ASUS Vivobook 15 N4020</h3>
+                    <div class="ratings">
+                        <span>⭐⭐⭐⭐</span> Best of Tech
+                    </div>
+                    <p>Intel N4020, 8GB RAM, 512GB SSD, Windows 11</p>
+                    <p>
+                        <span class="original-price">₹38,000</span>
+                        <span class="price">₹25,990</span>
+                    </p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card" data-id="5" data-name="HP Laptop 15s, AMD Ryzen 3" data-price="31490">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200" alt="Laptop 5">
+                </div>
+                <div class="product-info">
+                    <h3>HP Laptop 15s, AMD Ryzen 3</h3>
+                    <div class="ratings">
+                        <span>⭐⭐⭐⭐⭐</span> Bestseller
+                    </div>
+                    <p>AMD Ryzen 3, 8GB RAM, 512GB SSD, Windows 11</p>
+                    <p>
+                        <span class="original-price">₹45,000</span>
+                        <span class="price">₹31,490</span>
+                    </p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card" data-id="6" data-name="Dell Inspiron 14 5000" data-price="68490">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200" alt="Laptop 6">
+                </div>
+                <div class="product-info">
+                    <h3>Dell Inspiron 14 5000</h3>
+                    <div class="ratings">
+                        <span>⭐⭐⭐⭐</span> Limited stock
+                    </div>
+                    <p>Intel Core i7, 16GB RAM, 1TB SSD, Windows 11</p>
+                    <p>
+                        <span class="original-price">₹85,000</span>
+                        <span class="price">₹68,490</span>
+                    </p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card" data-id="7" data-name="Apple MacBook Air M1" data-price="84990">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200" alt="Laptop 7">
+                </div>
+                <div class="product-info">
+                    <h3>Apple MacBook Air M1</h3>
+                    <div class="ratings">
+                                         <span>⭐⭐⭐⭐⭐</span> Popular choice
+                    </div>
+                    <p>Apple M1, 8GB RAM, 256GB SSD, macOS</p>
+                    <p>
+                        <span class="original-price">₹92,900</span>
+                        <span class="price">₹84,990</span>
+                    </p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card" data-id="8" data-name="Microsoft Surface Laptop Go" data-price="59990">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200" alt="Laptop 8">
+                </div>
+                <div class="product-info">
+                    <h3>Microsoft Surface Laptop Go</h3>
+                    <div class="ratings">
+                        <span>⭐⭐⭐⭐</span> Lightweight design
+                    </div>
+                    <p>Intel Core i5, 8GB RAM, 256GB SSD, Windows 11</p>
+                    <p>
+                        <span class="original-price">₹72,000</span>
+                        <span class="price">₹59,990</span>
+                    </p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 9 -->
+            <div class="product-card" data-id="9" data-name="HP Pavilion Gaming 15" data-price="65490">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200" alt="Laptop 9">
+                </div>
+                <div class="product-info">
+                    <h3>HP Pavilion Gaming 15</h3>
+                    <div class="ratings">
+                        <span>⭐⭐⭐⭐</span> Gamers' favorite
+                    </div>
+                    <p>AMD Ryzen 5, 16GB RAM, 512GB SSD, GTX 1650, Windows 11</p>
+                    <p>
+                        <span class="original-price">₹80,000</span>
+                        <span class="price">₹65,490</span>
+                    </p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 10 -->
+            <div class="product-card" data-id="10" data-name="MSI GF63 Thin Gaming Laptop" data-price="56990">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200" alt="Laptop 10">
+                </div>
+                <div class="product-info">
+                    <h3>MSI GF63 Thin Gaming Laptop</h3>
+                    <div class="ratings">
+                        <span>⭐⭐⭐⭐</span> Best for budget gaming
+                    </div>
+                    <p>Intel Core i5, 8GB RAM, 512GB SSD, GTX 1650, Windows 11</p>
+                    <p>
+                        <span class="original-price">₹75,000</span>
+                        <span class="price">₹56,990</span>
+                    </p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const productCard = e.target.closest('.product-card');
+                    const id = productCard.getAttribute('data-id');
+                    const name = productCard.getAttribute('data-name');
+                    const price = parseFloat(productCard.getAttribute('data-price'));
+                    
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    
+                    const existingProductIndex = cart.findIndex(item => item.id === id);
+                    
+                    if (existingProductIndex > -1) {
+                        cart[existingProductIndex].quantity += 1;
+                    } else {
+                        cart.push({ id, name, price, quantity: 1 });
+                    }
+                    
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    alert(`${name} has been added to your cart.`);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
+

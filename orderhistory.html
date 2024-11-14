@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            background-image: linear-gradient(to bottom, #ffffff, #ff9900);
+        }
+
+        .history-container {
+            margin: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .history-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        .history-item h3 {
+            margin: 0 0 5px;
+            color: #ff9900;
+        }
+
+        .history-item p {
+            margin: 5px 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="history-container">
+        <h2>Order History</h2>
+        <div id="history-list"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const historyList = document.getElementById('history-list');
+            const orderHistory = JSON.parse(localStorage.getItem('orderHistory')) || [];
+            
+            if (orderHistory.length === 0) {
+                historyList.innerHTML = '<p>No orders yet.</p>';
+            } else {
+                orderHistory.forEach(item => {
+                    const historyItem = document.createElement('div');
+                    historyItem.className = 'history-item';
+
+                    // Creating HTML structure for order details
+                    let itemsHtml = '';
+                    item.items.forEach(cartItem => {
+                        itemsHtml += `
+                            <div>
+                                <h4>${cartItem.name}</h4>
+                                <p>Price: ₹${cartItem.price}</p>
+                                <p>Quantity: ${cartItem.quantity}</p>
+                                <p>Total: ₹${cartItem.price * cartItem.quantity}</p>
+                            </div>
+                        `;
+                    });
+
+                    historyItem.innerHTML = `
+                        <h3>Order Placed on: ${item.timestamp}</h3>
+                        <div>${itemsHtml}</div>
+                        <p>Total Amount: ${item.total}</p>
+                        <p>Shipping Address: ${item.address}, ${item.city}, ${item.zip}, ${item.country}</p>
+                        <p>Payment Method: ${item.paymentMethod}</p>
+                    `;
+                    historyList.appendChild(historyItem);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
